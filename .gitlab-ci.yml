@@ -1,0 +1,20 @@
+before_script:
+  - apt-get update -qq && apt-get install -y wget
+  - chmod u+x .gitlabci/*.sh
+  - /bin/bash .gitlabci/setup.sh # install go and singularity
+
+build:
+  script:
+     - /bin/bash .gitlabci/build.sh Singularity
+     - mkdir -p build && cp *.sif build
+     - mkdir -p build && cp Singularity* build
+
+  # job artifacts are not implemented, refer to gitlab CI for further details
+ 
+  artifacts:
+      paths:
+        - build/Singularity.sif
+        - build/Singularity
+  tags:
+          - docusaurus # choosing my gitlab-runner in my local cluster with tag name: docusaurus
+        
