@@ -7,3 +7,8 @@ Simple Gitlab CI example to build singularity images  (Go + Singularity (Apptain
 2) Add gitlab-runner and root to `/etc/subuid`  and `/etc/subgid` (Required to use singularity build with --fakeroot).
 3) Upload this repository to your own Gitlab project.
 4) In `.gitlab-ci.yml`, modify the `tags` name (choose the tag of your gitlab-runner).
+
+## References
+
+- https://gitlab.com/singularityhub/gitlab-ci
+- https://forum.gitlab.com/t/run-singularity-on-a-shared-gitlab-runner/75825
